@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-//program written to practise std::array and sorting alghorithms
+//program written to practise sorting alghorithms
 
 int main()
 {
