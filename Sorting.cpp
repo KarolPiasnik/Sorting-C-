@@ -1,15 +1,23 @@
+#include "stdafx.h"
 #include "Sorting.h"
-
-void bubbleSort(std::vector<int> &a) 
+#include <iostream>
+void Sorting::bubbleSort(std::vector<int> &a) 
 {
 	int tmp = 0;
-	for (std::vector<int>::iterator it = a.begin(); it != a.end()-1;) 
+	bool done=false;
+	while (!done) 
 	{
-		if (*it > *(it+1))
+		done = true;
+		for (std::vector<int>::iterator it = a.begin(); it != a.end() - 1;++it)
 		{
-			tmp = *it;
-			*it = *(it+1);
-			*(++it) = tmp;
+			if (*it > *(it + 1))
+			{
+				tmp = *it;
+				*it = *(it + 1);
+				*(it+1) = tmp;
+			
+				done = false;
+			}
 		}
 	}
 }
