@@ -64,7 +64,38 @@ void Sorting::stableSort(std::vector<int> &a)
 void Sorting::shellSort(std::vector<int> &a)
 {}
 void Sorting::coctailShakerSort(std::vector<int> &a)
-{}
+{
+	int tmp = 0;
+	bool done = false;
+	while (!done)
+	{
+		done = true;
+		for (std::vector<int>::iterator it = a.begin(); it != a.end() - 1; ++it)
+		{
+			if (*it > *(it + 1))
+			{
+				tmp = *it;
+				*it = *(it + 1);
+				*(it + 1) = tmp;
+
+				done = false;
+			}
+		}
+
+		for (std::vector<int>::iterator it = a.end()-1; it != a.begin() + 1; --it)
+		{
+			if (*it < *(it - 1))
+			{
+				tmp = *it;
+				*it = *(it - 1);
+				*(it - 1) = tmp;
+
+				done = false;
+			}
+		}
+	}
+}
+
 void Sorting::gnomeSort(std::vector<int> &a)
 {
 	int tmp;
