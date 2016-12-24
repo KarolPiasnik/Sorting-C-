@@ -53,7 +53,16 @@ void Sorting::selectionSort(std::vector<int> &a)
 }
 void Sorting::insertionSort(std::vector<int> &a)
 {
-	
+	int  tmp;
+	for (std::vector<int>::iterator i = a.begin(); i != a.end(); ++i) {
+		for (std::vector<int>::iterator j = i; j != a.begin() && *j < *(j - 1);--j)
+		{
+			tmp = *j;
+			*j = *(j-1);
+			*(j - 1) = tmp;
+		}
+	}
+
 }
 void Sorting::mergeSort(std::vector<int> &a)
 {}
