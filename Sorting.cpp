@@ -59,7 +59,7 @@ void Sorting::mergeSort(std::vector<int> &a)
 {}
 void Sorting::heapSort(std::vector<int> &a)
 {}
-void Sorting::redixSort(std::vector<int> &a)
+void Sorting::radixSort(std::vector<int> &a)
 {}
 void Sorting::stableSort(std::vector<int> &a)
 {}
@@ -137,18 +137,41 @@ void Sorting::gravitySort(std::vector<int> &a)
 
 	for (int i = 0; i < a.size(); ++i)
 	{
+		std::cout << std::endl;
 		data[i] = new bool[max];
 		for (int j = 0; j < max; ++j)
 		{
 			if (a.at(i) != 0)
 			{
 				data[i][j] = true;
-				--a.at(0);
+				--a.at(i);
+				std::cout << "*";
 			}
-			else
+			else {
 				data[i][j] = false;
+				std::cout << " ";
+			}
 		}
 	}
+
+	bool done = false;
+		
+		for (int i = 0; i < a.size() - 1; ++i) //time complexity = On(size*maxValue)
+		{
+			done = true;
+			for (int j = 0; j < max; ++j)
+			{
+				if (data[i][j] && data[i + 1][j]==false)
+				{
+					data[i][j] = false;
+					data[i + 1][j] = true;
+					done = false;
+				}
+
+			}
+
+		}
+	
 
 	for (int i = 0; i < a.size(); ++i)
 	{

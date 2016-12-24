@@ -13,7 +13,7 @@ class Sorting
 		void insertionSort(std::vector<int>&);
 		void mergeSort(std::vector<int>&);
 		void heapSort(std::vector<int>&);
-		void redixSort(std::vector<int>&);
+		void radixSort(std::vector<int>&);
 		//std::sort
 		void stableSort(std::vector<int>&);
 		void shellSort(std::vector<int>&);
