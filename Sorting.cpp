@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Sorting.h"
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include <array>
 
 void Sorting::bubbleSort(std::vector<int> &a) 
@@ -28,7 +30,31 @@ void Sorting::quickSort(std::vector<int> &a)
 {}
 
 void Sorting::bogoSort(std::vector<int> &a)
-{}
+{
+	srand(time(NULL));
+	int tmp,c,b;
+	bool done = false;
+	while (!done)
+	{
+		c = rand() % a.size();
+		b = rand() % a.size();
+		tmp = a.at(c);
+		a.at(c) = a.at(b);
+		a.at(b) = tmp;
+		done = true;
+
+		for (std::vector<int>::iterator it = a.begin(); it != a.end() - 1; ++it)
+		{
+			if (*it > *(it + 1))
+			{
+				done = false;
+				break;
+			}
+		}
+	}
+
+}
+
 void Sorting::selectionSort(std::vector<int> &a)
 {
 	std::vector<int>::iterator tmp = a.begin();
@@ -62,7 +88,6 @@ void Sorting::insertionSort(std::vector<int> &a)
 			*(j - 1) = tmp;
 		}
 	}
-
 }
 void Sorting::mergeSort(std::vector<int> &a)
 {}
