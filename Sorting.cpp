@@ -181,7 +181,7 @@ void Sorting::gravitySort(std::vector<int> &a)
 				++a.at(i);
 	}
 
-
+	delete data;
 
 
 }
