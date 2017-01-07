@@ -27,7 +27,36 @@ void Sorting::bubbleSort(std::vector<int> &a)
 }
 
 void Sorting::quickSort(std::vector<int> &a)
-{}
+{
+	_quickSort(a, a.begin(), a.end());
+}
+
+void Sorting::_quickSort(std::vector<int> &a, std::vector<int>::iterator left, std::vector<int>::iterator right)
+{
+	std::vector<int>::iterator i = left;
+	std::vector<int>::iterator j = right;
+	int x = a[((left-a.begin()) + (right-a.begin())) / 2];
+	do
+	{
+		while (*i < x)
+			++i;
+
+		while (*j > x)
+			--j;
+
+		if (i <= j)
+		{
+			std::swap(*i, *j);
+
+			i++;
+			j--;
+		}
+	} while (i <= j);
+
+	if (left < j) _quickSort(a, left, j);
+
+	if (right > i) _quickSort(a, i, right);
+}
 
 void Sorting::bogoSort(std::vector<int> &a)
 {

@@ -21,4 +21,7 @@ class Sorting
 		void gnomeSort(std::vector<int>&);
 		void bitonicSort(std::vector<int>&);
 		void gravitySort(std::vector<int>&);
+	private:
+		void _quickSort(std::vector<int>&, std::vector<int>::iterator, std::vector<int>::iterator);
+
 };
